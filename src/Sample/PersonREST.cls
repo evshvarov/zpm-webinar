@@ -20,8 +20,21 @@ XData UrlMap [ XMLNamespace = "http://www.intersystems.com/urlmap" ]
 <Route Url="/persons/:id" Method="DELETE" Call="DeletePerson"/>
 <!-- Create a person-->
 <Route Url="/persons/" Method="POST" Call="CreatePerson"/>
+<!-- Demo-->
+<Route Url="/test/" Method="GET" Call="Webinar"/>
+
 
 </Routes>
+}
+
+/// Test
+ClassMethod Webinar() As %Status
+{
+  SET answer = "This is Webinar"
+  SET info = {
+    "Answer": (answer)
+  }
+  RETURN ..%ProcessResult($$$OK, info)
 }
 
 /// PersonsREST general information
